@@ -7,10 +7,12 @@ from libs.genetic_optimization import *
 class GeneticOptimizationTest(unittest.TestCase):
 
     def setUp(self):
-        self.domain = [(1, 255), (1, 255), (1, 255), (100, 150)]
+        self.costf = lambda: int()
+        self.domain = [(1, 255), (1, 255), (1, 255)]
         self.psize = 30
         self.step = 3
-        self.go = GeneticOptimization(self.domain,
+        self.go = GeneticOptimization(self.costf,
+                                      self.domain,
                                       psize=self.psize,
                                       step=self.step)
 
