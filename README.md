@@ -1,7 +1,7 @@
 Genetic Algorithm
 ===
 
-using mutation and crossover.
+Genetic optimaization using mutation and crossover.
 
 
 # Build
@@ -15,7 +15,7 @@ go = GeneticOptimization(self.dormcost, self.domain)
 
 for i in range(ITER_CNT):
     go.next()
-    
+
 # printout (cost value, vector)
 print go.score
 ```
