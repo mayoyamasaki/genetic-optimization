@@ -8,9 +8,24 @@ class GeneticOptimizationTest(unittest.TestCase):
 
     def setUp(self):
         self.domain = [(1, 255), (1, 255), (1, 255), (100, 150)]
+        self.psize = 30
         self.step = 3
         self.go = GeneticOptimization(self.domain,
-                                      self.step)
+                                      psize=self.psize,
+                                      step=self.step)
+
+    def test_make_population(self):
+        population = self.go._GeneticOptimization__make_population()
+
+        isContainAll = []
+        for i in range(self.psize):
+            isContain = all(filter(lambda ((l, u), x): x in range(l, u + 1),
+                                   zip(self.domain, population[i])))
+            isContainAll.append(isContain)
+
+        self.assertTrue(all(isContainAll))
+        self.assertEqual(len(population), self.psize)
+
 
     def test_mutate(self):
         current = len(self.domain) * [1]

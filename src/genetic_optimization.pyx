@@ -5,7 +5,7 @@ import random
 
 class GeneticOptimization:
 
-    def __init__(self, domain, step=1):
+    def __init__(self, domain, psize=50, step=1):
         """
             Keyword arguments:
                 domain -- list of tuple (min, max)
@@ -13,6 +13,20 @@ class GeneticOptimization:
         """
         self.domain = domain
         self.step = step
+        self.psize = psize
+
+    def __make_population(self):
+        """
+            make new vectors in domain.
+
+            Returns: list of list. initial population.
+        """
+        population = list()
+        for i in range(self.psize):
+            vec = [random.randint(self.domain[j][0], self.domain[j][1])
+                    for j in range(len(self.domain))]
+            population.append(vec)
+        return population
 
     def __mutate(self, vec):
         """
