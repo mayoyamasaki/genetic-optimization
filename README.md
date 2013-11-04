@@ -11,7 +11,7 @@ $ python setup.py build_ext --inplace
 
 # How to Use
 ```
-go = GeneticOptimization(self.dormcost, self.domain)
+go = GeneticOptimization(COST_FUNCTION, DOMAIN)
 
 for i in range(ITER_CNT):
     go.next()

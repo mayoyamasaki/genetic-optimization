@@ -13,7 +13,7 @@ class DistributeBook(object):
         self.domain = [(0, (len(self.books) * 2) -i -1)
                         for i in range(len(self.books) * 2)]
 
-    def dormcost(self, vec):
+    def bookcost(self, vec):
         cost = 0
         slots = []
         for i in range(len(self.books)): slots += [i, i]
@@ -41,7 +41,7 @@ class DistributeBook(object):
             del slots[x]
 
     def optimize(self, iter_cnt):
-        go = GeneticOptimization(self.dormcost, self.domain)
+        go = GeneticOptimization(self.bookcost, self.domain)
 
         for i in range(iter_cnt):
             go.next()
