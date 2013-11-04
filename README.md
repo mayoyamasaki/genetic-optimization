@@ -11,6 +11,7 @@ $ python setup.py build_ext --inplace
 
 # How to Use
 ```
+# DOMAIN -- list of tuple (min, max)
 go = GeneticOptimization(COST_FUNCTION, DOMAIN)
 
 for i in range(ITER_CNT):
